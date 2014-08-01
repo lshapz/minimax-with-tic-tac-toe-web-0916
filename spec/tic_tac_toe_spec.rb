@@ -132,9 +132,11 @@ describe "TicTacToe" do
 
   describe "#user_move" do
     let(:game) { TicTacToe.new }
-    it "updates the board from a string of a number to an 'O'" do
-      game.user_move("[0,1]")
-      expect(game.board).to eq([["1","O","3"],["4","5","6"],["7","8","9"]])
+    it "takes a string of an array of coordinates to update the board" do
+      game.user_move("[0,2]")
+      expect(game.board).to eq([["1","2","O"],["4","5","6"],["7","8","9"]])
+      game.user_move("[0,0]")
+      expect(game.board).to eq([["O","2","O"],["4","5","6"],["7","8","9"]])
     end
   end
 
