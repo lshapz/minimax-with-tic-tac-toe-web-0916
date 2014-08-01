@@ -10,7 +10,7 @@ class TicTacToe
   def message
     if winner?
       "win"
-    elsif free_space? == false
+    elsif tie?
       "tie"
     else
       "play on"

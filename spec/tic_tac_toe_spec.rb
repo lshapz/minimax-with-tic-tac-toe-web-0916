@@ -2,6 +2,23 @@ require 'spec_helper'
 require 'pry'
 
 describe "TicTacToe" do
+  describe "#initialize" do
+    let(:game) { TicTacToe.new }
+    it "initiates a class with a board with is an array of three arrays" do
+      expect(game.board).to eq([["1","2","3"],["4","5","6"],["7","8","9"]])
+    end
+    it "has a writer method for board" do
+      game.board[0][0] = "X"
+      expect(game.board).to eq([["X","2","3"],["4","5","6"],["7","8","9"]])
+    end
+    it "initiates a class with a with a turn number of 0" do
+      expect(game.turn_num).to eq(0)
+    end
+    it "has a writer method for turn number" do
+      game.turn_num = 1
+      expect(game.turn_num).to eq(1)
+    end
+  end
 
   describe "#get_free_spaces" do
     let(:game) { TicTacToe.new }
@@ -61,6 +78,10 @@ describe "TicTacToe" do
       game.board = [["O","X","X"],["X","O","O"],["X","O","X"]]
       expect(game.tie?).to eq(true)
     end
+    it "returns false when there is a winner" do
+      game.board = [["X","X","X"],["O","O","X"],["O","X","O"]]
+      expect(game.tie?).to eq(false)
+    end  
   end
 
   describe "#winner?" do 
@@ -74,7 +95,7 @@ describe "TicTacToe" do
       game.board = [["X","X","O"],["O","X","O"],["X","O","X"]]
       expect(game.winner?).to eq(true)
     end
-    it "returns false for horizontal winner" do
+    it "returns true for horizontal winner" do
       game.board = [["X","X","X"],["4","5","6"],["O","8","O"]]
       expect(game.winner?).to eq(true)
     end  
