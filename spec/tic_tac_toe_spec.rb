@@ -84,7 +84,7 @@ describe "TicTacToe" do
     end  
   end
 
-  describe "#winner?" do 
+  describe "#winner?" do
     let(:game) { TicTacToe.new }
     it "returns false for no winner" do
       expect(game.winner?).to eq(false)
@@ -103,6 +103,32 @@ describe "TicTacToe" do
       game.board = [["X","2","3"],["X","O","6"],["X","O","9"]]
       expect(game.winner?).to eq(true)
     end
+  end
+
+
+  def message
+    if winner?
+      "win"
+    elsif tie?
+      "tie"
+    else
+      "play on"
+    end
+  end
+ 
+  describe "#message" do 
+    let(:game) { TicTacToe.new }
+    it "returns 'play' on if there is a no winner and no tie" do
+      expect(game.message).to eq("play on")
+    end
+    it "returns 'tie' if there is a tie" do
+      game.board = [["O","X","X"],["X","O","O"],["X","O","X"]]
+      expect(game.message).to eq("tie")
+    end
+    it "returns 'win' if there is a winner" do
+      game.board = [["X","X","X"],["4","5","6"],["O","8","O"]]
+      expect(game.message).to eq("win")
+    end 
   end
 
 end
