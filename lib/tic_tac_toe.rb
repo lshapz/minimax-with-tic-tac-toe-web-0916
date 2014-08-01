@@ -41,11 +41,11 @@ class TicTacToe
     end
   end
 
-  def get_free_spaces(board=board)
+  def get_free_spaces
     spaces = []
-    board.each_with_index do |row, row_index|
+    self.board.each_with_index do |row, row_index|
       row.each_with_index do |space, column_index|
-        if space != "O" || space != "X"
+        if space != "O" && space != "X"
           spaces << [row_index, column_index]
         end
       end
@@ -77,8 +77,15 @@ class TicTacToe
     end
   end
 
-  def winner?(board=board)
-    return diagonal_winner?(board) || horizontal_winner?(board) || vertical_winner?(board)
+  def tie?
+    if get_free_spaces.length < 1
+      return true if winner? == false
+    end
+    false
+  end
+
+  def winner?(b=self.board)
+    return diagonal_winner?(b) || horizontal_winner?(b) || vertical_winner?(b)
   end
 
   def diagonal_winner?(board)
