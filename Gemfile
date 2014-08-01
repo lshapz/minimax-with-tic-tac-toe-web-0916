@@ -11,3 +11,8 @@ group :development do
   gem "pry"
 end
 
+group :test do
+  gem 'rspec'
+  gem "pry"
+  gem 'capybara'
+end
