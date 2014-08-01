@@ -105,7 +105,6 @@ describe "TicTacToe" do
     end
   end
 
-
   def message
     if winner?
       "win"
@@ -129,6 +128,14 @@ describe "TicTacToe" do
       game.board = [["X","X","X"],["4","5","6"],["O","8","O"]]
       expect(game.message).to eq("win")
     end 
+  end
+
+  describe "#user_move" do
+    let(:game) { TicTacToe.new }
+    it "updates the board from a string of a number to an 'O'" do
+      game.user_move("[0,1]")
+      expect(game.board).to eq([["1","O","3"],["4","5","6"],["7","8","9"]])
+    end
   end
 
 end
