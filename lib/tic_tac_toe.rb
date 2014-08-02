@@ -23,7 +23,7 @@ class TicTacToe
   end
 
   def computer_move
-    _, next_move = minimax(board, "X")
+    _, next_move = minimax(self.board, -1)
     row, column = next_move
     update_board(row, column, "X")
   end
@@ -41,9 +41,9 @@ class TicTacToe
     end
   end
 
-  def get_free_spaces
+  def get_free_spaces(b=self.board)
     spaces = []
-    self.board.each_with_index do |row, row_index|
+    b.each_with_index do |row, row_index|
       row.each_with_index do |space, column_index|
         if space != "O" && space != "X"
           spaces << [row_index, column_index]
@@ -53,24 +53,24 @@ class TicTacToe
     spaces
   end
 
-  def minimax(board, player)
+def minimax(board, number)
     move_winners = []
     get_free_spaces(board).each do |row, column|
+      player = number == -1 ? "X" : "O"
+      original_piece = board[row][column]
       board[row][column] = player
-      @counter += 1
       if winner?(board)
-        winner = player
+        winner = number
       elsif get_free_spaces(board).empty?
         winner = 0
       else
-        new_player = player == "X" ? "O" : "X"
-        winner, _ = minimax(board, new_player)
+        winner, _ = minimax(board, -number)
       end
       move_winners << [winner, [row, column]]
-      board[row][column] = 0
+      board[row][column] = original_piece
     end
 
-    if player == 1
+    if number == 1
       return move_winners.max
     else
       return move_winners.min

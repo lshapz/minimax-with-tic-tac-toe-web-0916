@@ -122,7 +122,7 @@ describe "TicTacToe" do
 
   describe "#user_move" do
     let(:game) { TicTacToe.new }
-    it "takes a string of an array of coordinates to update the board" do
+    it "takes coordinates (presented in a string of an array) and updates the board" do
       game.user_move("[0,2]")
       expect(game.board).to eq([["1","2","O"],["4","5","6"],["7","8","9"]])
       game.user_move("[0,0]")
@@ -132,6 +132,25 @@ describe "TicTacToe" do
       original_num = game.turn_num
       game.user_move("[0,2]")
       expect(game.turn_num).to eq(original_num + 1)
+    end
+  end
+
+  describe "#computer_move" do
+    let(:game) { TicTacToe.new }
+    it "plays in the center when user's first move is a corner" do
+      game.board = [["O","2","3"],["4","5","6"],["7","8","9"]]
+      game.computer_move
+      expect(game.board).to eq([["O","2","3"],["4","X","6"],["7","8","9"]])
+    end
+    it "plays in any corner when user's first move is the center" do
+      game.board = [["1","2","3"],["4","O","6"],["7","8","9"]]
+      game.computer_move
+      expect(game.board).to eq(
+        [["X","2","3"],["4","O","6"],["7","8","9"]] || 
+        [["1","2","X"],["4","O","6"],["7","8","9"]] ||
+        [["1","2","3"],["4","O","6"],["X","8","9"]] ||
+        [["1","2","3"],["4","O","6"],["7","8","X"]] 
+      )
     end
   end
 
