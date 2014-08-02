@@ -104,16 +104,6 @@ describe "TicTacToe" do
       expect(game.winner?).to eq(true)
     end
   end
-
-  def message
-    if winner?
-      "win"
-    elsif tie?
-      "tie"
-    else
-      "play on"
-    end
-  end
  
   describe "#message" do 
     let(:game) { TicTacToe.new }
@@ -137,6 +127,11 @@ describe "TicTacToe" do
       expect(game.board).to eq([["1","2","O"],["4","5","6"],["7","8","9"]])
       game.user_move("[0,0]")
       expect(game.board).to eq([["O","2","O"],["4","5","6"],["7","8","9"]])
+    end
+    it "updates the turn number" do
+      original_num = game.turn_num
+      game.user_move("[0,2]")
+      expect(game.turn_num).to eq(original_num + 1)
     end
   end
 
