@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry'
 
 describe "TicTacToe" do
   describe "#initialize" do
