@@ -152,6 +152,36 @@ describe "TicTacToe" do
         [["1","2","3"],["4","O","6"],["7","8","X"]] 
       )
     end
+    it "blocks the user from winning" do
+      game.board = [["1","X","3"],["4","5","6"],["7","O","O"]]
+      game.computer_move
+      expect(game.board).to eq([["1","X","3"],["4","5","6"],["X","O","O"]])
+    end
+    it "completes a horizontal win" do
+      game.board = [["X","X","3"],["O","O","6"],["X","O","O"]]
+      game.computer_move
+      expect(game.board).to eq([["X","X","X"],["O","O","6"],["X","O","O"]])
+    end
+    it "completes a vertical win" do
+      game.board = [["X","X","O"],["4","O","6"],["X","O","O"]]
+      game.computer_move
+      expect(game.board).to eq([["X","X","O"],["X","O","6"],["X","O","O"]])
+    end
+    it "completes a diagonal win" do
+      game.board = [["X","O","X"],["O","5","O"],["X","8","O"]]
+      game.computer_move
+      expect(game.board).to eq([["X","O","X"],["O","X","O"],["X","8","O"]])
+    end
+    it "prioritizes winning over blocking" do
+      game.board = [["1","X","3"],["4","5","6"],["7","8","9"]]
+      game.computer_move
+      expect(game.board).to eq(
+        [["X","2","3"],["4","O","6"],["7","8","9"]] || 
+        [["1","2","X"],["4","O","6"],["7","8","9"]] ||
+        [["1","2","3"],["4","O","6"],["X","8","9"]] ||
+        [["1","2","3"],["4","O","6"],["7","8","X"]] 
+      )
+    end
   end
 
 end
