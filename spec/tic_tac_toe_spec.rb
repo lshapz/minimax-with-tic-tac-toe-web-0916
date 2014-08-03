@@ -15,8 +15,9 @@ describe "TicTacToe" do
       expect(game.turn_num).to eq(0)
     end
     it "has a writer method for turn number" do
-      game.turn_num = 1
-      expect(game.turn_num).to eq(1)
+      original_num = game.turn_num
+      game.turn_num += 1
+      expect(game.turn_num).to eq(original_num + 1)
     end
   end
 
@@ -27,7 +28,7 @@ describe "TicTacToe" do
       t.board = [["O","O","X"],["X","O","O"],["O","X","X"]] 
       t
     }
-    it "knows about all empty space coordinates at beginning of game" do
+    it "returns array that contains arrays of of all empty space coordinates at beginning of game" do
       expect(game.get_free_spaces).to include([0,0])
       expect(game.get_free_spaces).to include([1,0])
       expect(game.get_free_spaces).to include([2,0])
@@ -38,7 +39,7 @@ describe "TicTacToe" do
       expect(game.get_free_spaces).to include([1,2])
       expect(game.get_free_spaces).to include([2,2])
     end
-    it "knows about all empty spaces throughout game" do
+    it "returns array that contains arrays of of all empty space coordinates throughout game" do
       game.board = [["1","2","X"],["O","X","6"],["7","X","O"]]
       expect(game.get_free_spaces).to include([0,0])
       expect(game.get_free_spaces).to include([0,1])
