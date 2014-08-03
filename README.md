@@ -1,5 +1,5 @@
 ---
-tags: cs, computer science, recursion, recursive, sinatra, tdd, algorithm
+tags: cs, computer science, recursion, recursive, sinatra, tdd, algorithms
 languages: ruby
 resources: 5
 ---
