@@ -18,7 +18,8 @@ class TicTacToe
   end
  
   def user_move(space)
-    row, column = space.split(",").collect {|num| num.to_i }
+    row = space[1].to_i
+    column = space[3].to_i
     update_board(row, column, "O")
   end
 

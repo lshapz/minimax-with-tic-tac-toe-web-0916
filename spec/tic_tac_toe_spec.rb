@@ -123,11 +123,41 @@ describe "TicTacToe" do
 
   describe "#user_move" do
     let(:game) { TicTacToe.new }
-    it "takes coordinates (presented in a string of an array) and updates the board" do
+    it "takes coordinates (presented in a string of an array) and updates the top left corner" do
+      game.user_move("[0,0]")
+      expect(game.board).to eq([["O","2","3"],["4","5","6"],["7","8","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the top middle" do
+      game.user_move("[0,1]")
+      expect(game.board).to eq([["1","O","3"],["4","5","6"],["7","8","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the top right corner" do
       game.user_move("[0,2]")
       expect(game.board).to eq([["1","2","O"],["4","5","6"],["7","8","9"]])
-      game.user_move("[0,0]")
-      expect(game.board).to eq([["O","2","O"],["4","5","6"],["7","8","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the left middle" do
+      game.user_move("[1,0]")
+      expect(game.board).to eq([["1","2","3"],["O","5","6"],["7","8","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the middle" do
+      game.user_move("[1,1]")
+      expect(game.board).to eq([["1","2","3"],["4","O","6"],["7","8","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the right middle" do
+      game.user_move("[1,2]")
+      expect(game.board).to eq([["1","2","3"],["4","5","O"],["7","8","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the left bottom corner" do
+      game.user_move("[2,0]")
+      expect(game.board).to eq([["1","2","3"],["4","5","6"],["O","8","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the bottom middle" do
+      game.user_move("[2,1]")
+      expect(game.board).to eq([["1","2","3"],["4","5","6"],["7","O","9"]])
+    end
+    it "takes coordinates (presented in a string of an array) and updates the right bottom corner" do
+      game.user_move("[2,2]")
+      expect(game.board).to eq([["1","2","3"],["4","5","6"],["7","8","O"]])
     end
     it "updates the turn number" do
       original_num = game.turn_num
