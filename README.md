@@ -4,7 +4,7 @@ languages: ruby
 resources: 5
 ---
 
-# Minimax Algorithm and Tic Tac Toe
+# Tic-Tac-Toe with the Minimax Algorithm
 
 ## Objectives
 Make an unbeatable tic-tac-toe game by implementing a [recursive](http://ruby.bastardsbook.com/chapters/recursion/) [minimax](http://www.neverstopbuilding.com/minimax) method that will optimize the computer's moves.
