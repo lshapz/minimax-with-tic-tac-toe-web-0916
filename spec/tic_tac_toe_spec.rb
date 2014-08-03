@@ -173,14 +173,9 @@ describe "TicTacToe" do
       expect(game.board).to eq([["X","O","X"],["O","X","O"],["X","8","O"]])
     end
     it "prioritizes winning over blocking" do
-      game.board = [["1","X","3"],["4","5","6"],["7","8","9"]]
+      game.board = [["O","X","O"],["O","X","O"],["7","8","X"]]
       game.computer_move
-      expect(game.board).to eq(
-        [["X","2","3"],["4","O","6"],["7","8","9"]] || 
-        [["1","2","X"],["4","O","6"],["7","8","9"]] ||
-        [["1","2","3"],["4","O","6"],["X","8","9"]] ||
-        [["1","2","3"],["4","O","6"],["7","8","X"]] 
-      )
+      expect(game.board).to eq([["O","X","O"],["O","X","O"],["7","X","X"]])
     end
   end
 
