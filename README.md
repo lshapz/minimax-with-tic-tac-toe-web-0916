@@ -21,4 +21,4 @@ Make an unbeatable tic-tac-toe game by implementing a [recursive](http://ruby.ba
 * [Joshua Cheek's Ruby Kickstart Series](http://vimeo.com/user3374111) - [Introduction to Recursion](http://vimeo.com/24716767)
 * [Wikipedia](http://en.wikipedia.org/) - [Minimax Algorithm](http://en.wikipedia.org/wiki/Minimax)
 * [Never Stop Building Blog](http://www.neverstopbuilding.com/) - [Minimax](http://www.neverstopbuilding.com/minimax)
-* [Heroku Docs](https://devcenter.heroku.com/) - [Deploying Rack-based Apps](https://devcenter.heroku.com/articles/rack)
+* [Heroku Docs](https://devcenter.heroku.com/) - [Deploying Rack-based Apps](https://devcenter.heroku.com/articles/rack#sinatra)
