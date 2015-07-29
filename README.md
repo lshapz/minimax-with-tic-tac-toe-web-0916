@@ -1,8 +1,4 @@
----
-tags: cs, computer science, recursion, recursive, sinatra, tdd, algorithms
-languages: ruby
-resources: 5
----
+
 
 # Tic-Tac-Toe with the Minimax Algorithm
 
