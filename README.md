@@ -19,4 +19,4 @@ Make an unbeatable tic-tac-toe game by implementing a [recursive](http://ruby.ba
 * [Never Stop Building Blog](http://www.neverstopbuilding.com/) - [Minimax](http://www.neverstopbuilding.com/minimax)
 * [Heroku Docs](https://devcenter.heroku.com/) - [Deploying Rack-based Apps](https://devcenter.heroku.com/articles/rack#sinatra)
 
-<a href='https://learn.co/lessons/minimax-with-tic-tac-toe' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/minimax-with-tic-tac-toe' title='Tic-Tac-Toe with the Minimax Algorithm'>Tic-Tac-Toe with the Minimax Algorithm</a> on Learn.co and start learning to code for free.</p>
