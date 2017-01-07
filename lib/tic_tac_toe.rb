@@ -77,8 +77,8 @@ WIN_COMBINATIONS = [
   end
 
   def user_move(input_string)
-    input_array = [input_string[1], input_string[3]]
-    # JSON.parse(input_string)
+    #  = [[input_string[1], input_string[3]]
+    input_array= JSON.parse(input_string)
     row, column = input_array
     # same as row = input_array[0], column = input_array[1]
     if self.get_free_spaces.include?(input_array.to_a)
@@ -89,7 +89,7 @@ WIN_COMBINATIONS = [
 
 
   def computer_move
-    _playerid, move = minimax(self.board, -1)
+    _player, move = minimax(self.board, -1)
     row, column = move 
     # same as row = move[0], column = move[1]
     self.board[row][column] = "X"
@@ -100,7 +100,7 @@ def minimax(board, id)
     move_winners = []
 
     get_free_spaces(board).each do |row, column|
-      player = id == -1 ? "X" : "O"
+      player = (id == -1 ? "X" : "O")
     # -1 is computer, 1 is human 
       try_position = board[row][column]
     # saves the original value for resetting board at end of attempt?
@@ -114,24 +114,32 @@ def minimax(board, id)
         winner = 0
     # doesn't use tie? because that doesn't take a param and this is easier
       else
-        playerid, _move = minimax(board, -id)
+        winner, _move = minimax(board, -id)
     # return formatted like [1, [1, 1]] 
       end
 
   # if game over (win or tie) declares a winner 
   # else recursively runs  algorithm again moving down tree 
   # it runs through human too it -- basically plays the whole game 
-
+     # p winner.to_s + "winner" 
+     # p row.to_s + "row"
+     # p column.to_s + "column "
+     # p id.to_s + "id"
+     # if winner == nil 
+     #    winner = 1
       move_winners << [winner, [row, column]]
       # pushes result of move tree into the array
       board[row][column] = try_position
       # resets the board
     end
+    # p move_winners
+    # p move_winners.max
+    # p move_winners.min
 
+    # byebug
     if id == 1
       return move_winners.max
     else
-
       return move_winners.min
     end
 

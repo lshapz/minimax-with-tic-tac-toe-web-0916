@@ -186,7 +186,6 @@ describe "TicTacToe" do
       game.board = [["1","X","3"],["4","5","6"],["7","O","O"]]
       game.computer_move
       expect(game.board).to eq([["1","X","3"],["4","5","6"],["X","O","O"]])
-      byebug
     end
     it "completes a horizontal win" do
       game.board = [["X","X","3"],["O","O","6"],["X","O","O"]]
