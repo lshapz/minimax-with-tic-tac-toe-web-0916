@@ -121,22 +121,12 @@ def minimax(board, id)
   # if game over (win or tie) declares a winner 
   # else recursively runs  algorithm again moving down tree 
   # it runs through human too it -- basically plays the whole game 
-     # p winner.to_s + "winner" 
-     # p row.to_s + "row"
-     # p column.to_s + "column "
-     # p id.to_s + "id"
-     # if winner == nil 
-     #    winner = 1
       move_winners << [winner, [row, column]]
       # pushes result of move tree into the array
       board[row][column] = try_position
       # resets the board
     end
-    # p move_winners
-    # p move_winners.max
-    # p move_winners.min
 
-    # byebug
     if id == 1
       return move_winners.max
     else
